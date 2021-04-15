@@ -4,20 +4,22 @@
   <p style="color: red;"><%= message %></p>
 <% end %>
 
-<%= form_with(model: @movies) do %>
-  <div>
-    <%= label_tag :title %>
+<hr>
 
-    <%= text_field_tag "movie[title]", @movies.title %>
+<%= form_with(model: @movies) do |form| %>
+  <div>
+    <%= form.label :title %>
+
+    <%= form.text_field :title %>
 
   </div>
 
   <div>
-    <%= label_tag :description %>
+    <%= form.label :description %>
 
-    <%= text_area_tag "movie[description]", @movies.description, rows: 3 %>
+    <%= form.text_area :description, rows: 3 %>
 
-  <%= button_tag "Create movie" %>
+  <%= form.button  %>
   
 <% end %>
 
