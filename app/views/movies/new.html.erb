@@ -8,15 +8,16 @@
   <div>
     <%= label_tag :title %>
 
-    <%= text_field_tag :title, @movies.title %>
+    <%= text_field_tag "movie[title]", @movies.title %>
 
   </div>
 
   <div>
     <%= label_tag :description %>
 
-    <%= text_area_tag :description, @movies.description, rows: 3 %>
+    <%= text_area_tag "movie[description]", @movies.description, rows: 3 %>
 
   <%= button_tag "Create movie" %>
   
 <% end %>
+

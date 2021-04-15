@@ -22,8 +22,8 @@ class MoviesController < ApplicationController
 
   def create
     @movies = Movie.new
-    @movies.title = params.fetch(:title)
-    @movies.description = params.fetch(:description)
+    @movies.title = params.fetch(:movie).fetch(:title)
+    @movies.description = params.fetch(:movie).fetch(:description)
 
     if @movies.valid?
       @movies.save
