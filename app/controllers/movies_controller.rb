@@ -21,9 +21,8 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movies = Movie.new
-    @movies.title = params.fetch(:movie).fetch(:title)
-    @movies.description = params.fetch(:movie).fetch(:description)
+    movie_attributes = params.require(:movie).permit(:title, :description)
+    @movies = Movie.new(movie_attributes) # this is called mass assignment
 
     if @movies.valid?
       @movies.save
