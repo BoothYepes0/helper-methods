@@ -1,12 +1,12 @@
 <h1>New movie</h1>
 
-<% @movies.errors.full_messages.each do |message| %>
+<% @movie.errors.full_messages.each do |message| %>
   <p style="color: red;"><%= message %></p>
 <% end %>
 
 <hr>
 
-<%= form_with(model: @movies) do |form| %>
+<%= form_with(model: @movie) do |form| %>
   <div>
     <%= form.label :title %>
 

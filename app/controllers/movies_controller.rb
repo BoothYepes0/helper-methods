@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def new
-    @movies = Movie.new
+    @movie = Movie.new
   end
 
   def index
@@ -17,15 +17,15 @@ class MoviesController < ApplicationController
   end
 
   def show
-     @movies = Movie.find(params.fetch(:id))
+     @movie = Movie.find(params.fetch(:id))
   end
 
   def create
     movie_attributes = params.require(:movie).permit(:title, :description)
-    @movies = Movie.new(movie_attributes) # this is called mass assignment
+    @movie = Movie.new(movie_attributes) # this is called mass assignment
 
-    if @movies.valid?
-      @movies.save
+    if @movie.valid?
+      @movie.save
       redirect_to movies_url, notice: "Movie created successfully."
     else
       render "new" 
@@ -33,14 +33,14 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movies = Movie.find(params.fetch(:id))
+    @movie = Movie.find(params.fetch(:id))
   end
 
   def update
-    @movies = Movie.find(params.fetch(:id))
+    @movie = Movie.find(params.fetch(:id))
 
-    @movies.title = params.fetch(:title)
-    @movies.description = params.fetch(:description)
+    @movie.title = params.fetch(:title)
+    @movie.description = params.fetch(:description)
 
     if @movies.valid?
       @movies.save

@@ -1,21 +1,21 @@
 <h1>Edit movie</h1>
 
-<% @movies.errors.full_messages.each do |message| %>
+<% @movie.errors.full_messages.each do |message| %>
   <p style="color: red;"><%= message %></p>
 <% end %>
 
-<%= form_with(url: movie_path(@movies), method: :patch) do %>
+<%= form_with(url: movie_path(@movie), method: :patch) do %>
   <div>
     <%= label_tag :title, "Title" %>
 
-    <%= text_field_tag :title, @movies.title, {id: "title_box"} %>
+    <%= text_field_tag :title, @movie.title, {id: "title_box"} %>
 
   </div>
 
   <div>
     <%= label_tag :description, "Description" %>
 
-    <%= text_area_tag :description, @movies.description, id: "description_box", rows: 3 %>
+    <%= text_area_tag :description, @movie.description, id: "description_box", rows: 3 %>
 
   <%= button_tag "Update movie" %>
   
