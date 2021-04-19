@@ -42,18 +42,18 @@ class MoviesController < ApplicationController
     @movie.title = params.fetch(:title)
     @movie.description = params.fetch(:description)
 
-    if @movies.valid?
-      @movies.save
-      redirect_to movie_url(@movies), notice: "Movie updated successfully." 
+    if @movie.valid?
+      @movie.save
+      redirect_to movie_url(@movie), notice: "Movie updated successfully." 
     else
-      redirect_to movie_url(@movies), alert: "Movie failed to update successfully." 
+      redirect_to movie_url(@movie), alert: "Movie failed to update successfully." 
     end
   end
 
   def destroy
-    @movies = Movie.find(params.fetch(:id))
+    @movie = Movie.find(params.fetch(:id))
 
-    @movies.destroy
+    @movie.destroy
 
     redirect_to("/movies",  :notice => "Movie deleted successfully." )
   end
